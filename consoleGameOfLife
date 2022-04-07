@@ -1,63 +1,50 @@
 from random import choice
 
-MAX_SIZE = 10
-DEAD = ' '
-LIVE = 'x'
+LIVE = '1'
+DEAD = '0'
+MAXIMAL = 15
 
 
-def neighbor_xy(x, y):
-    for dx, dy in (
-            (0, 1),
-            (1, 1),
-            (1, 0),
-            (1, -1),
-            (0, -1),
-            (-1, -1),
-            (-1, 0),
-            (-1, 1)
-    ):
-        yield x + dx, y + dy
+
+def sosed(x, y):
+    for dx, dy in ((0, 1),(1, 1),(1, 0),(1, -1),(0, -1),(-1, -1),(-1, 0), (-1, 1)):
+           yield x+dx, y+dy
+
+
+def empty_field():
+    return [[DEAD for x in range(MAXIMAL)] for y in range(MAXIMAL)]
+
 
 
 def show_field(field):
-    for y in range(MAX_SIZE):
+    for y in range(MAXIMAL):
         print(''.join(field[y]))
 
 
-def get_empty_field():
-    return [
-        [DEAD for x in range(MAX_SIZE)] for y in range(MAX_SIZE)
-    ]
+def live(field, sosed_x, sosed_y):
+    return 0 <= sosed_x < MAXIMAL \
+           and 0 <= sosed_y < MAXIMAL \
+           and field[sosed_y][sosed_x] == LIVE
 
 
-def is_live(field, neighbor_x, neighbor_y):
-    return 0 <= neighbor_x < MAX_SIZE \
-           and 0 <= neighbor_y < MAX_SIZE \
-           and field[neighbor_y][neighbor_x] == LIVE
-
-
-field = [
-    [choice([DEAD, LIVE]) for x in range(MAX_SIZE)] for y in range(MAX_SIZE)
-]
+field = [[choice([DEAD, LIVE]) for x in range(MAXIMAL)] for y in range(MAXIMAL)]
 
 while True:
-    input('press any key for next step: ')
+    input('start game: ')
     show_field(field)
-    buffer = get_empty_field()
-    for y in range(MAX_SIZE):
-        for x in range(MAX_SIZE):
-            c = field[y][x]
-            neighbors = 0
-            for neighbor_x, neighbor_y in neighbor_xy(x, y):
-                neighbors += 1 if is_live(field, neighbor_x, neighbor_y) else 0
-            if c == DEAD:
-                buffer[y][x] = LIVE if neighbors == 3 else DEAD
+    damper = empty_field()
+    for y in range(MAXIMAL):
+        for x in range(MAXIMAL):
+            a = field[y][x]
+            neighbours = 0
+            for sosed_x, sosed_y in sosed(x, y):
+                neighbours += 1 if live(field, sosed_x, sosed_y) else 0
+            if a == DEAD:
+                damper[y][x] = LIVE if neighbours == 3 else DEAD
             else:
-                buffer[y][x] = LIVE if neighbors in (2, 3) else DEAD
+                damper[y][x] = LIVE if neighbours in (2, 3) else DEAD
 
-    if field == buffer:
-        print('stasis')
+    if field == damper:
+        print('stagantion')
         break
-    field = buffer
-    
-    #not my idea, but I understood this code.
+    field =damper
