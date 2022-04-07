@@ -60,3 +60,5 @@ while True:
 
     pygame.display.flip()
     clock.tick(FPS)
+    
+  #not my idea unfortunately, but I understood the code.
