@@ -1,5 +1,8 @@
 # MidtermProject
-# fff
+# Game of Life
+The Game of Life, also known simply as life, is a cellular automaton developed by the British mathematician Conway in 1970. This is a 0 player game, which means that its evolution is determined by its initial state, requiring no further input. A person interacts with the Game of Life, creating an initial configuration and watching how it develops. It is Turing complete and can simulate a universal constructor or any other Turing machine.
+
+#Rules
 The place of action of this game - the "universe" - is a surface or plane marked into cells - boundless,
 bounded, or closed (in the limit, an infinite plane).
 
