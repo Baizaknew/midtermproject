@@ -29,3 +29,7 @@ The game ends if
 The player does not directly participate in the game, but only arranges or generates the initial configuration of "live" cells,
 which then interact according to the rules already without his participation (he is an observer).
 
+# Screenshots
+![gameoflifescreen2](https://user-images.githubusercontent.com/102854080/162586180-f735876f-6927-4f71-a522-b6dc1f796b19.png)
+
+
