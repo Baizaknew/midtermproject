@@ -31,5 +31,7 @@ which then interact according to the rules already without his participation (he
 
 # Screenshots
 ![gameoflifescreen2](https://user-images.githubusercontent.com/102854080/162586180-f735876f-6927-4f71-a522-b6dc1f796b19.png)
+![gameoflifescreen1](https://user-images.githubusercontent.com/102854080/162586221-b2a195dc-3465-4853-aceb-b6437d1271d9.png)
+
 
 
