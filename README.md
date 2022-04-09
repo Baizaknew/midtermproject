@@ -25,3 +25,5 @@ The game ends if
 
 The player does not directly participate in the game, but only arranges or generates the initial configuration of "live" cells,
 which then interact according to the rules already without his participation (he is an observer).
+
+# Screenshots
