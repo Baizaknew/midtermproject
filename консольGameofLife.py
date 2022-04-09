@@ -5,15 +5,15 @@ DEAD = '0'
 MAXIMAL = 15
 
 
-
 def sosed(x, y):
-    for dx, dy in ((0, 1),(1, 1),(1, 0),(1, -1),(0, -1),(-1, -1),(-1, 0), (-1, 1)):
-           yield x+dx, y+dy
+    for dx, dy in (
+            (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0),
+            (-1, 1)):
+                yield x+dx, y+dy
 
 
 def empty_field():
     return [[DEAD for x in range(MAXIMAL)] for y in range(MAXIMAL)]
-
 
 
 def show_field(field):
@@ -27,10 +27,11 @@ def live(field, sosed_x, sosed_y):
            and field[sosed_y][sosed_x] == LIVE
 
 
-field = [[choice([DEAD, LIVE]) for x in range(MAXIMAL)] for y in range(MAXIMAL)]
+field = [
+    [choice([DEAD, LIVE]) for x in range(MAXIMAL)] for y in range(MAXIMAL)]
 
 while True:
-    input('start game: ')
+    input('start game(please, write any letter or word): ')
     show_field(field)
     damper = empty_field()
     for y in range(MAXIMAL):
@@ -47,4 +48,4 @@ while True:
     if field == damper:
         print('stagantion')
         break
-    field =damper
+    field = damper
