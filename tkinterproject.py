@@ -1,3 +1,6 @@
+# NOT MY CODE
+# GOT THE IDEA FROM https://www.reddit.com/r/learnpython/comments/270zhz/i_build_conways_game_of_life_with_the_tkinter_gui/
+
 from tkinter import *
 from tkinter import font
 import time
